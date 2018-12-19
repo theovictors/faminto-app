@@ -1,3 +1,4 @@
+<%@page import="server.models.Produto"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -21,8 +22,8 @@
     </tr>
   </thead>
   <tbody>
-  
-  	<c:forEach items="${ produtos }" var="produto">
+
+	<c:forEach items="${ produtos }" var="produto">  
 	    <tr>
 	      <th scope="row">${ produto.id }</th>
 	      <td>${ produto.nome }</td>
@@ -30,7 +31,6 @@
 	      <td>${ produto.preco }</td>
 	    </tr>
   	</c:forEach>
-  	
   </tbody>
 </table>
 
