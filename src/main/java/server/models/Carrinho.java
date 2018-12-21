@@ -28,4 +28,8 @@ public class Carrinho {
 		
 	}
 
+	public void clear() {
+		carrinho.clear();
+	}
+
 }

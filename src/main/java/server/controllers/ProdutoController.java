@@ -19,7 +19,7 @@ public class ProdutoController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView modelAndView = new ModelAndView("produto/list");
-		
+
 		modelAndView.addObject("produtos", produtoDAO.findAll());
 		
 		return modelAndView;
