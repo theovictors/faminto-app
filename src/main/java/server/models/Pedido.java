@@ -3,12 +3,29 @@ package server.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
+@Entity
 public class Pedido {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "pedido_id")
 	private Integer id;
 	private String nome;
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dataNascimento;
 	private String endereco;
@@ -17,6 +34,10 @@ public class Pedido {
 	private Integer cep;
 	private MetodoPagamento metodoPagamento;
 	private StatusPedido status;
+	@ManyToMany(cascade = CascadeType.DETACH)
+	@JoinTable(name = "produto_pedido", 
+						joinColumns = @JoinColumn(name = "pedido_id"),
+						inverseJoinColumns = @JoinColumn(name = "produto_id"))
 	private List<Produto> produtos;
 
 	public Integer getId() {
