@@ -9,6 +9,8 @@
         rel="stylesheet">
 </head>
 <body>
+<%@include file="../includes/menu.jsp" %>
+
 <div class="col-md-4">
 
 	<form action="./form" method="POST">

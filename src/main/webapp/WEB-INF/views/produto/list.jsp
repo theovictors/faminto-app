@@ -12,6 +12,8 @@
 </head>
 <body>
 
+<%@include file="../includes/menu.jsp" %>
+
 <table class="table">
   <thead>
     <tr>
